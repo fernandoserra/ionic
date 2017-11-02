@@ -1,14 +1,38 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      Ionic Blank
+      Cargando Datos
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-card>
+    <ion-card-header text-center>
+      Cargando Datos API
+    </ion-card-header>
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let datos of datosList">
+      <ion-item>
+        {{datos.id_datos}}
+        <br> {{datos.nombre}}
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="secondary" (click)="goDetalles(datos)">
+          <ion-icon name="menu"></ion-icon>
+          Detalles
+        </button>
+        <button ion-button color="danger" (click)="eliminarDatos(datos.id_datos)">
+          <ion-icon name="trash"></ion-icon>
+          Eliminar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
 </ion-content>

@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>detalles</ion-title>
   </ion-navbar>
 
@@ -14,5 +14,29 @@
 
 
 <ion-content padding>
+  <ion-item>
+    <ion-label color="primary" stacked>Nombre</ion-label>
+    <ion-input type="text" placeholder="Nombre" [(ngModel)]="datos.nombre"></ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label color="primary" stacked>Apellido</ion-label>
+    <ion-input type="text" placeholder="Apellido" [(ngModel)]="datos.apellido"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Genero</ion-label>
+    <ion-select [(ngModel)]="datos.sexo">
+      <ion-option value="F">F</ion-option>
+      <ion-option value="M">M</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Fecha</ion-label>
+    <ion-datetime displayFormat="YYYY/MM/DD" [(ngModel)]="datos.f_nacimiento"></ion-datetime>
+  </ion-item>
+
+  <button ion-button full (click)="modificarDatos(datos)"> Modificar</button>
+  <button ion-button full (click)="irPrincipal()"> Principal</button>
 </ion-content>
